@@ -10,7 +10,7 @@ class TimeLineScreen extends StatefulWidget {
 class _TimeLineScreenState extends State<TimeLineScreen> {
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ListView(
       children: <Widget>[
         Container(
           height: 100,
@@ -33,9 +33,12 @@ class _TimeLineScreenState extends State<TimeLineScreen> {
           ),
         ),
         Container(
-          height: 300,
-          child: ListView(
+          height: 2500,
+          child: Column(
             children: <Widget>[
+              PostWidget(),
+              PostWidget(),
+              PostWidget(),
               PostWidget(),
             ],
           ),

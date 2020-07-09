@@ -9,9 +9,22 @@ class _StorieWidgetState extends State<StorieWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: CircleAvatar(
-        radius: 30,
-      ),
-    );
+        margin: EdgeInsets.symmetric(horizontal: 10),
+        child: Stack(
+          alignment: Alignment.center,
+          children: <Widget>[
+            CircleAvatar(
+              radius: 34,
+              backgroundColor: Colors.pink,
+            ),
+            CircleAvatar(
+              radius: 31,
+              backgroundColor: Colors.black,
+            ),
+            CircleAvatar(
+              radius: 30,
+            ),
+          ],
+        ));
   }
 }

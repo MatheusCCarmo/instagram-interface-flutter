@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
       title: 'Instagram',
       theme: ThemeData(
         primaryColor: Colors.white,
+        iconTheme: IconThemeData(size: 30),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(),
