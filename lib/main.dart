@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:instagram/screens/time_line_screen.dart';
 
 void main() {
@@ -29,7 +30,13 @@ class MyHomePage extends StatelessWidget {
         leading: Icon(
           Icons.camera_alt,
         ),
-        title: Center(child: Text('Instagram')),
+        title: Container(
+          height: 45,
+          margin: EdgeInsets.only(left: 70),
+          child: Image.asset(
+            "assets/images/text-logo.svg.png",
+          ),
+        ),
         actions: <Widget>[
           Tab(
             icon: Container(
@@ -41,8 +48,11 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
           ),
-          Icon(
-            Icons.send,
+          Container(
+            margin: EdgeInsets.only(top: 10, right: 10, left: 10),
+            child: FaIcon(
+              FontAwesomeIcons.paperPlane,
+            ),
           ),
         ],
       ),

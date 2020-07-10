@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/widgets/post_icon_widget.dart';
 
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 class PostActionsWidget extends StatefulWidget {
   @override
   _PostActionsWidgetState createState() => _PostActionsWidgetState();
@@ -13,11 +15,11 @@ class _PostActionsWidgetState extends State<PostActionsWidget> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Row(children: <Widget>[
-          PostIconWidget(Icon(Icons.favorite_border)),
-          PostIconWidget(Icon(Icons.chat_bubble_outline)),
-          PostIconWidget(Icon(Icons.send)),
+          PostIconWidget(faIcon: FaIcon(FontAwesomeIcons.heart)),
+          PostIconWidget(faIcon: FaIcon(FontAwesomeIcons.comment)),
+          PostIconWidget(faIcon: FaIcon(FontAwesomeIcons.paperPlane)),
         ]),
-        PostIconWidget(Icon(Icons.bookmark_border)),
+        PostIconWidget(faIcon: FaIcon(FontAwesomeIcons.bookmark)),
       ],
     );
   }
