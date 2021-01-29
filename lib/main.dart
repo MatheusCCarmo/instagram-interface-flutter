@@ -27,32 +27,33 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(
-          Icons.camera_alt,
-        ),
+        elevation: 0,
+        leadingWidth: 0,
         title: Container(
-          height: 45,
-          margin: EdgeInsets.only(left: 70),
+          height: 50,
           child: Image.asset(
             "assets/images/text-logo.svg.png",
+            fit: BoxFit.cover,
           ),
         ),
         actions: <Widget>[
-          Tab(
-            icon: Container(
-              height: 35,
-              width: 35,
-              child: Image.asset(
-                "assets/images/IGTV-logo.png",
-                fit: BoxFit.contain,
-              ),
+          GestureDetector(
+            child: Icon(
+              Icons.add_box_outlined,
             ),
           ),
-          Container(
-            margin: EdgeInsets.only(top: 10, right: 10, left: 10),
-            child: FaIcon(
-              FontAwesomeIcons.paperPlane,
-            ),
+          SizedBox(
+            width: 10,
+          ),
+          GestureDetector(
+            child: Container(
+                height: 30, width: 30, child: Icon(Icons.favorite_border)),
+          ),
+          SizedBox(
+            width: 10,
+          ),
+          GestureDetector(
+            child: Icon(Icons.north_east),
           ),
         ],
       ),
