@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:instagram/widgets/post_icon_widget.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -15,11 +14,46 @@ class _PostActionsWidgetState extends State<PostActionsWidget> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Row(children: <Widget>[
-          PostIconWidget(faIcon: FaIcon(FontAwesomeIcons.heart)),
-          PostIconWidget(faIcon: FaIcon(FontAwesomeIcons.comment)),
-          PostIconWidget(faIcon: FaIcon(FontAwesomeIcons.paperPlane)),
+          SizedBox(
+            width: 10,
+          ),
+          GestureDetector(
+            child: Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: Icon(Icons.favorite_border),
+            ),
+            onTap: () {},
+          ),
+          SizedBox(
+            width: 10,
+          ),
+          GestureDetector(
+            child: Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: Icon(Icons.chat_bubble_outline),
+            ),
+            onTap: () {},
+          ),
+          SizedBox(
+            width: 10,
+          ),
+          GestureDetector(
+            child: Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: Icon(Icons.north_east),
+            ),
+            onTap: () {},
+          ),
         ]),
-        PostIconWidget(faIcon: FaIcon(FontAwesomeIcons.bookmark)),
+        GestureDetector(
+          child: Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: Icon(
+              Icons.bookmark_border,
+            ),
+          ),
+          onTap: () {},
+        ),
       ],
     );
   }

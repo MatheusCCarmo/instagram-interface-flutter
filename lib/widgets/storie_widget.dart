@@ -9,7 +9,7 @@ class _StorieWidgetState extends State<StorieWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.symmetric(horizontal: 10),
+        margin: EdgeInsets.symmetric(horizontal: 8),
         child: Stack(
           alignment: Alignment.center,
           children: <Widget>[
