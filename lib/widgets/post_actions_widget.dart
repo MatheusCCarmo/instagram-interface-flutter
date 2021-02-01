@@ -8,6 +8,18 @@ class PostActionsWidget extends StatefulWidget {
 }
 
 class _PostActionsWidgetState extends State<PostActionsWidget> {
+  Icon favSelectedIcon = Icon(
+    Icons.favorite,
+    color: Colors.red[600],
+  );
+
+  Icon favIcon = Icon(
+    Icons.favorite_border,
+  );
+
+  bool isFavSelected = false;
+  bool isBookmarkSelected = false;
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -20,9 +32,13 @@ class _PostActionsWidgetState extends State<PostActionsWidget> {
           GestureDetector(
             child: Padding(
               padding: const EdgeInsets.all(5.0),
-              child: Icon(Icons.favorite_border),
+              child: isFavSelected ? favSelectedIcon : favIcon,
             ),
-            onTap: () {},
+            onTap: () {
+              setState(() {
+                isFavSelected = !isFavSelected;
+              });
+            },
           ),
           SizedBox(
             width: 10,
@@ -49,10 +65,14 @@ class _PostActionsWidgetState extends State<PostActionsWidget> {
           child: Padding(
             padding: const EdgeInsets.all(5.0),
             child: Icon(
-              Icons.bookmark_border,
+              isBookmarkSelected ? Icons.bookmark : Icons.bookmark_border,
             ),
           ),
-          onTap: () {},
+          onTap: () {
+            setState(() {
+              isBookmarkSelected = !isBookmarkSelected;
+            });
+          },
         ),
       ],
     );
