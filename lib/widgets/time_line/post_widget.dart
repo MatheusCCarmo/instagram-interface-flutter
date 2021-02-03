@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:instagram/widgets/post_actions_widget.dart';
-import 'package:instagram/widgets/post_interactions_widget.dart';
+import 'package:instagram/widgets/time_line/post_actions_widget.dart';
+import 'package:instagram/widgets/time_line/post_interactions_widget.dart';
 
 class PostWidget extends StatelessWidget {
   @override

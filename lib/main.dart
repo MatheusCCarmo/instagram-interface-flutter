@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:instagram/screens/explore_screen.dart';
+import 'package:instagram/screens/profile_screen.dart';
+import 'package:instagram/screens/reels_screen.dart';
+import 'package:instagram/screens/shop_screen.dart';
 import 'package:instagram/screens/time_line_screen.dart';
 
 void main() {
@@ -30,6 +34,14 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
 
+  List<Widget> _screens = [
+    TimeLineScreen(),
+    ExploreScreen(),
+    ReelsScreen(),
+    ShopScreen(),
+    ProfileScreen(),
+  ];
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -40,85 +52,90 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          leadingWidth: 0,
-          title: Container(
-            height: 50,
-            child: Image.asset(
-              "assets/images/text-logo.svg.png",
-              fit: BoxFit.cover,
+          appBar: AppBar(
+            elevation: 0,
+            leadingWidth: 0,
+            title: Container(
+              height: 50,
+              child: Image.asset(
+                "assets/images/text-logo.svg.png",
+                fit: BoxFit.cover,
+              ),
             ),
+            actions: <Widget>[
+              GestureDetector(
+                child: Icon(
+                  Icons.add_box_outlined,
+                ),
+                onTap: () {},
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              GestureDetector(
+                child: Container(
+                  height: 30,
+                  width: 30,
+                  child: Icon(Icons.favorite_border),
+                ),
+                onTap: () {},
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              GestureDetector(
+                child: Icon(Icons.north_east),
+                onTap: () {},
+              ),
+            ],
           ),
-          actions: <Widget>[
-            GestureDetector(
-              child: Icon(
-                Icons.add_box_outlined,
+          bottomNavigationBar: BottomNavigationBar(
+            selectedFontSize: 13,
+            unselectedFontSize: 12,
+            type: BottomNavigationBarType.fixed,
+            unselectedItemColor: Colors.white24,
+            selectedItemColor: Colors.blue,
+            currentIndex: _selectedIndex,
+            onTap: _onItemTapped,
+            items: [
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.home,
+                  color: Colors.black,
+                ),
+                label: '',
               ),
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            GestureDetector(
-              child: Container(
-                  height: 30, width: 30, child: Icon(Icons.favorite_border)),
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            GestureDetector(
-              child: Icon(Icons.north_east),
-            ),
-          ],
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          selectedFontSize: 13,
-          unselectedFontSize: 12,
-          type: BottomNavigationBarType.fixed,
-          unselectedItemColor: Colors.white24,
-          selectedItemColor: Colors.blue,
-          currentIndex: _selectedIndex,
-          onTap: _onItemTapped,
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-                color: Colors.black,
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.search,
+                  color: Colors.black,
+                ),
+                label: '',
               ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.search,
-                color: Colors.black,
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.play_arrow,
+                  color: Colors.black,
+                ),
+                label: '',
               ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.play_arrow,
-                color: Colors.black,
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.shopping_bag_outlined,
+                  color: Colors.black,
+                ),
+                label: '',
               ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.shopping_bag_outlined,
-                color: Colors.black,
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.account_circle_outlined,
+                  color: Colors.black,
+                ),
+                label: '',
               ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.account_circle_outlined,
-                color: Colors.black,
-              ),
-              label: '',
-            ),
-          ],
-        ),
-        body: TimeLineScreen(),
-      ),
+            ],
+          ),
+          body: _screens[_selectedIndex]),
     );
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:instagram/widgets/post_widget.dart';
-import 'package:instagram/widgets/storie_widget.dart';
+import 'package:instagram/widgets/time_line/post_widget.dart';
+import 'package:instagram/widgets/time_line/storie_widget.dart';
 
 class TimeLineScreen extends StatefulWidget {
   @override
