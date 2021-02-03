@@ -34,29 +34,68 @@ class _TimeLineScreenState extends State<TimeLineScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: _posts.length,
-      itemBuilder: (context, index) {
-        if (index == 0) {
-          return Column(
-            children: <Widget>[
-              Container(
-                height: 100,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: _stories.length,
-                  itemBuilder: (context, index) {
-                    return _stories[index];
-                  },
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        leadingWidth: 0,
+        title: Container(
+          height: 50,
+          child: Image.asset(
+            "assets/images/text-logo.svg.png",
+            fit: BoxFit.cover,
+          ),
+        ),
+        actions: <Widget>[
+          GestureDetector(
+            child: Icon(
+              Icons.add_box_outlined,
+            ),
+            onTap: () {},
+          ),
+          SizedBox(
+            width: 10,
+          ),
+          GestureDetector(
+            child: Container(
+              height: 30,
+              width: 30,
+              child: Icon(Icons.favorite_border),
+            ),
+            onTap: () {},
+          ),
+          SizedBox(
+            width: 10,
+          ),
+          GestureDetector(
+            child: Icon(Icons.north_east),
+            onTap: () {},
+          ),
+        ],
+      ),
+      body: ListView.builder(
+        itemCount: _posts.length,
+        itemBuilder: (context, index) {
+          if (index == 0) {
+            return Column(
+              children: <Widget>[
+                Container(
+                  height: 100,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: _stories.length,
+                    itemBuilder: (context, index) {
+                      return _stories[index];
+                    },
+                  ),
                 ),
-              ),
-              _posts[index]
-            ],
-          );
-        } else {
-          return _posts[index];
-        }
-      },
+                _posts[index],
+              ],
+            );
+          } else {
+            return _posts[index];
+          }
+        },
+      ),
     );
   }
 }

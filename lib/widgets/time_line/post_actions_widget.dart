@@ -11,10 +11,12 @@ class _PostActionsWidgetState extends State<PostActionsWidget> {
   Icon favSelectedIcon = Icon(
     Icons.favorite,
     color: Colors.red[600],
+    size: 24,
   );
 
   Icon favIcon = Icon(
     Icons.favorite_border,
+    size: 24,
   );
 
   bool isFavSelected = false;
@@ -41,22 +43,28 @@ class _PostActionsWidgetState extends State<PostActionsWidget> {
             },
           ),
           SizedBox(
-            width: 10,
+            width: 6,
           ),
           GestureDetector(
             child: Padding(
               padding: const EdgeInsets.all(5.0),
-              child: Icon(Icons.chat_bubble_outline),
+              child: Icon(
+                Icons.chat_bubble_outline,
+                size: 24,
+              ),
             ),
             onTap: () {},
           ),
           SizedBox(
-            width: 10,
+            width: 6,
           ),
           GestureDetector(
             child: Padding(
               padding: const EdgeInsets.all(5.0),
-              child: Icon(Icons.north_east),
+              child: Icon(
+                Icons.north_east,
+                size: 24,
+              ),
             ),
             onTap: () {},
           ),
@@ -66,6 +74,7 @@ class _PostActionsWidgetState extends State<PostActionsWidget> {
             padding: const EdgeInsets.all(5.0),
             child: Icon(
               isBookmarkSelected ? Icons.bookmark : Icons.bookmark_border,
+              size: 24,
             ),
           ),
           onTap: () {

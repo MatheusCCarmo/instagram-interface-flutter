@@ -18,7 +18,9 @@ class MyApp extends StatelessWidget {
       title: 'Instagram',
       theme: ThemeData(
         primaryColor: Colors.white,
-        iconTheme: IconThemeData(size: 30),
+        iconTheme: IconThemeData(
+          size: 30,
+        ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(),
@@ -52,90 +54,61 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          appBar: AppBar(
-            elevation: 0,
-            leadingWidth: 0,
-            title: Container(
-              height: 50,
-              child: Image.asset(
-                "assets/images/text-logo.svg.png",
-                fit: BoxFit.cover,
+        bottomNavigationBar: BottomNavigationBar(
+          selectedFontSize: 13,
+          unselectedFontSize: 12,
+          iconSize: 30,
+          type: BottomNavigationBarType.fixed,
+          unselectedItemColor: Colors.white24,
+          selectedItemColor: Colors.blue,
+          currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(
+                _selectedIndex == 0 ? Icons.home : Icons.home_outlined,
+                color: Colors.black,
               ),
+              label: '',
             ),
-            actions: <Widget>[
-              GestureDetector(
-                child: Icon(
-                  Icons.add_box_outlined,
-                ),
-                onTap: () {},
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.search,
+                color: Colors.black,
               ),
-              SizedBox(
-                width: 10,
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                _selectedIndex == 2
+                    ? Icons.play_arrow
+                    : Icons.play_arrow_outlined,
+                color: Colors.black,
               ),
-              GestureDetector(
-                child: Container(
-                  height: 30,
-                  width: 30,
-                  child: Icon(Icons.favorite_border),
-                ),
-                onTap: () {},
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                _selectedIndex == 3
+                    ? Icons.shopping_bag
+                    : Icons.shopping_bag_outlined,
+                color: Colors.black,
               ),
-              SizedBox(
-                width: 10,
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                _selectedIndex == 4
+                    ? Icons.account_circle
+                    : Icons.account_circle_outlined,
+                color: Colors.black,
               ),
-              GestureDetector(
-                child: Icon(Icons.north_east),
-                onTap: () {},
-              ),
-            ],
-          ),
-          bottomNavigationBar: BottomNavigationBar(
-            selectedFontSize: 13,
-            unselectedFontSize: 12,
-            type: BottomNavigationBarType.fixed,
-            unselectedItemColor: Colors.white24,
-            selectedItemColor: Colors.blue,
-            currentIndex: _selectedIndex,
-            onTap: _onItemTapped,
-            items: [
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.home,
-                  color: Colors.black,
-                ),
-                label: '',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.search,
-                  color: Colors.black,
-                ),
-                label: '',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.play_arrow,
-                  color: Colors.black,
-                ),
-                label: '',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.shopping_bag_outlined,
-                  color: Colors.black,
-                ),
-                label: '',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.account_circle_outlined,
-                  color: Colors.black,
-                ),
-                label: '',
-              ),
-            ],
-          ),
-          body: _screens[_selectedIndex]),
+              label: '',
+            ),
+          ],
+        ),
+        body: _screens[_selectedIndex],
+      ),
     );
   }
 }
