@@ -55,6 +55,8 @@ class _MyHomePageState extends State<MyHomePage> {
     return SafeArea(
       child: Scaffold(
         bottomNavigationBar: BottomNavigationBar(
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
           selectedFontSize: 13,
           unselectedFontSize: 12,
           iconSize: 30,

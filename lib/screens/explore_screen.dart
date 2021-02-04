@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
 
 class ExploreScreen extends StatelessWidget {
-  Widget sugestionWidget(String sugestion) {
+  Widget exploreSugestionWidget(String sugestion) {
     return GestureDetector(
       child: Container(
-        margin: EdgeInsets.only(right: 6),
-        padding: EdgeInsets.symmetric(vertical: 6, horizontal: 16),
+        margin: EdgeInsets.only(right: 10),
+        padding: EdgeInsets.symmetric(vertical: 6, horizontal: 22),
         decoration: BoxDecoration(
           border: Border.all(color: Colors.black12),
           borderRadius: BorderRadius.circular(8),
         ),
-        child: Text(sugestion),
+        child: Text(
+          sugestion,
+          style: TextStyle(
+            fontWeight: FontWeight.w600,
+          ),
+        ),
       ),
       onTap: () {},
     );
@@ -44,11 +49,13 @@ class ExploreScreen extends StatelessWidget {
               ),
               child: TextField(
                 decoration: InputDecoration(
+                  prefixIconConstraints: BoxConstraints.tight(Size(35, 30)),
                   prefixIcon: Icon(
                     Icons.search,
                     color: Colors.black26,
+                    size: 20,
                   ),
-                  labelText: 'Pesquisar',
+                  labelText: 'Search',
                   border: InputBorder.none,
                 ),
               ),
@@ -70,16 +77,18 @@ class ExploreScreen extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             child: Row(
               children: [
-                sugestionWidget('IGTV'),
-                sugestionWidget('Trips'),
-                sugestionWidget('Architecture'),
-                sugestionWidget('Decoration'),
-                sugestionWidget('Style'),
-                sugestionWidget('Food'),
-                sugestionWidget('Art'),
-                sugestionWidget('Beauty'),
-                sugestionWidget('Music'),
-                sugestionWidget('Sports'),
+                exploreSugestionWidget('IGTV'),
+                exploreSugestionWidget('Travel'),
+                exploreSugestionWidget('Architecture'),
+                exploreSugestionWidget('Decor'),
+                exploreSugestionWidget('Style'),
+                exploreSugestionWidget('Food'),
+                exploreSugestionWidget('Art'),
+                exploreSugestionWidget('DIY'),
+                exploreSugestionWidget('Beauty'),
+                exploreSugestionWidget('Music'),
+                exploreSugestionWidget('TV & Movies'),
+                exploreSugestionWidget('Sports'),
               ],
             ),
           ),
