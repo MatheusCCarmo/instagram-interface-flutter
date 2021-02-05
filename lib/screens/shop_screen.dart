@@ -3,15 +3,100 @@ import 'package:flutter/material.dart';
 class ShopScreen extends StatelessWidget {
   Widget shopScreenPost() {
     return GridTile(
-      child: Container(
-        color: Colors.red,
+      header: Container(
+        margin: EdgeInsets.only(left: 20, top: 20),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              height: 30,
+              child: ClipOval(
+                child: Image.network(
+                    'https://spassodourado.com.br/wp-content/uploads/2015/01/default-placeholder.png'),
+              ),
+            ),
+            SizedBox(
+              width: 5,
+            ),
+            Container(
+              child: Text(
+                'teste',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+          ],
+        ),
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(10),
+        child: Container(
+          margin: EdgeInsets.all(5),
+          color: Colors.black,
+        ),
       ),
     );
   }
 
   Widget shopSugestionWidget(String sugestion) {
     return Container(
-      child: Text(sugestion),
+      height: 60,
+      width: 160,
+      margin: EdgeInsets.only(right: 10, top: 10),
+      padding: EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(color: Colors.black26),
+      ),
+      child: Row(
+        children: [
+          if (sugestion == 'See Editors\' Pick')
+            ClipOval(
+              child: Image.network(
+                  'https://spassodourado.com.br/wp-content/uploads/2015/01/default-placeholder.png'),
+            ),
+          if (sugestion == 'Browse Shops')
+            Stack(
+              children: [
+                Container(
+                  margin: EdgeInsets.only(bottom: 10),
+                  height: 30,
+                  child: ClipOval(
+                    child: Image.network(
+                        'https://spassodourado.com.br/wp-content/uploads/2015/01/default-placeholder.png'),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 10, left: 10),
+                  height: 30,
+                  child: ClipOval(
+                    child: Image.network(
+                        'https://spassodourado.com.br/wp-content/uploads/2015/01/default-placeholder.png'),
+                  ),
+                ),
+              ],
+            ),
+          if (sugestion != 'See Editors\' Pick' && sugestion != 'Browse Shops')
+            ClipRRect(
+              borderRadius: BorderRadius.circular(6),
+              child: Image.network(
+                  'https://spassodourado.com.br/wp-content/uploads/2015/01/default-placeholder.png'),
+            ),
+          SizedBox(
+            width: 10,
+          ),
+          Expanded(
+            child: Text(
+              sugestion,
+              style: TextStyle(
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 10,
+          )
+        ],
+      ),
     );
   }
 
@@ -82,6 +167,7 @@ class ShopScreen extends StatelessWidget {
             crossAxisCount: 2,
             mainAxisSpacing: 0.6,
             crossAxisSpacing: 0.6,
+            childAspectRatio: 0.9,
             children: [
               shopScreenPost(),
               shopScreenPost(),
