@@ -1,105 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/widgets/shop/shop_post_widget.dart';
+import 'package:instagram/widgets/shop/shop_sugestion_widget.dart';
 
 class ShopScreen extends StatelessWidget {
-  Widget shopScreenPost() {
-    return GridTile(
-      header: Container(
-        margin: EdgeInsets.only(left: 20, top: 20),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              height: 30,
-              child: ClipOval(
-                child: Image.network(
-                    'https://spassodourado.com.br/wp-content/uploads/2015/01/default-placeholder.png'),
-              ),
-            ),
-            SizedBox(
-              width: 5,
-            ),
-            Container(
-              child: Text(
-                'teste',
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
-          ],
-        ),
-      ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(10),
-        child: Container(
-          margin: EdgeInsets.all(5),
-          color: Colors.black,
-        ),
-      ),
-    );
-  }
-
-  Widget shopSugestionWidget(String sugestion) {
-    return Container(
-      height: 60,
-      width: 160,
-      margin: EdgeInsets.only(right: 10, top: 10),
-      padding: EdgeInsets.all(10),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: Colors.black26),
-      ),
-      child: Row(
-        children: [
-          if (sugestion == 'See Editors\' Pick')
-            ClipOval(
-              child: Image.network(
-                  'https://spassodourado.com.br/wp-content/uploads/2015/01/default-placeholder.png'),
-            ),
-          if (sugestion == 'Browse Shops')
-            Stack(
-              children: [
-                Container(
-                  margin: EdgeInsets.only(bottom: 10),
-                  height: 30,
-                  child: ClipOval(
-                    child: Image.network(
-                        'https://spassodourado.com.br/wp-content/uploads/2015/01/default-placeholder.png'),
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(top: 10, left: 10),
-                  height: 30,
-                  child: ClipOval(
-                    child: Image.network(
-                        'https://spassodourado.com.br/wp-content/uploads/2015/01/default-placeholder.png'),
-                  ),
-                ),
-              ],
-            ),
-          if (sugestion != 'See Editors\' Pick' && sugestion != 'Browse Shops')
-            ClipRRect(
-              borderRadius: BorderRadius.circular(6),
-              child: Image.network(
-                  'https://spassodourado.com.br/wp-content/uploads/2015/01/default-placeholder.png'),
-            ),
-          SizedBox(
-            width: 10,
-          ),
-          Expanded(
-            child: Text(
-              sugestion,
-              style: TextStyle(
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-          ),
-          SizedBox(
-            width: 10,
-          )
-        ],
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -150,11 +53,11 @@ class ShopScreen extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             child: Row(
               children: [
-                shopSugestionWidget('Browse Shops'),
-                shopSugestionWidget('See Editors\' Pick'),
-                shopSugestionWidget('Shop Collections'),
-                shopSugestionWidget('Explore Guides'),
-                shopSugestionWidget('Watch and Shop'),
+                ShopSugestionWidget('Browse Shops'),
+                ShopSugestionWidget('See Editors\' Pick'),
+                ShopSugestionWidget('Shop Collections'),
+                ShopSugestionWidget('Explore Guides'),
+                ShopSugestionWidget('Watch and Shop'),
               ],
             ),
           ),
@@ -162,29 +65,35 @@ class ShopScreen extends StatelessWidget {
         SizedBox(
           height: 10,
         ),
+        //TODO: change the scroll behavior so the sugestions can scroll with the posts
         Expanded(
-          child: GridView.count(
-            crossAxisCount: 2,
-            mainAxisSpacing: 0.6,
-            crossAxisSpacing: 0.6,
-            childAspectRatio: 0.9,
-            children: [
-              shopScreenPost(),
-              shopScreenPost(),
-              shopScreenPost(),
-              shopScreenPost(),
-              shopScreenPost(),
-              shopScreenPost(),
-              shopScreenPost(),
-              shopScreenPost(),
-              shopScreenPost(),
-              shopScreenPost(),
-              shopScreenPost(),
-              shopScreenPost(),
-              shopScreenPost(),
-              shopScreenPost(),
-              shopScreenPost(),
-            ],
+          child: Container(
+            margin: EdgeInsets.symmetric(horizontal: 10),
+            child: GridView.count(
+              crossAxisCount: 2,
+              mainAxisSpacing: 7,
+              crossAxisSpacing: 7,
+              childAspectRatio: 0.85,
+              children: [
+                ShopPostWidget('trincacamisas', 'Camisa Vasco Dry gigante'),
+                ShopPostWidget('keydesgin', 'ANEL SIMPLICIDADE PROFISSIONAL'),
+                ShopPostWidget('keydesgin', 'anel simpicidade profissional'),
+                ShopPostWidget('tRICACAMISASfsaffsafsa', 'Camisa Vasco Dry'),
+                ShopPostWidget('lojasgigantedacolina',
+                    'Camisa Vasco Infantil Dia de jogo'),
+                ShopPostWidget(
+                    'lojabotafogooficial', 'Camisa Botafogo Jogo 1 casa'),
+                ShopPostWidget('trincamisas', 'Camisa Vasco Dry'),
+                ShopPostWidget('trincamisas', 'Camisa Vasco Dry'),
+                ShopPostWidget('lojasgigantedacolina',
+                    'Camisa Vasco Dry Gigante da Colina'),
+                ShopPostWidget('trincamisas', 'Camisa Vasco Dry'),
+                ShopPostWidget('trincamisas', 'Camisa Vasco Dry'),
+                ShopPostWidget('trincamisas', 'Camisa Vasco Dry'),
+                ShopPostWidget('lojasgigantedacolina',
+                    'Camisa Vasco Dry Gigante da Colina'),
+              ],
+            ),
           ),
         )
       ],

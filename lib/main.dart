@@ -55,8 +55,8 @@ class _MyHomePageState extends State<MyHomePage> {
     return SafeArea(
       child: Scaffold(
         bottomNavigationBar: Container(
-          height: 30,
-          margin: EdgeInsets.only(bottom: 15),
+          height: 56,
+          // margin: EdgeInsets.only(bottom: 15),
           alignment: Alignment.topCenter,
           child: BottomNavigationBar(
             showSelectedLabels: false,

@@ -72,6 +72,7 @@ class _TimeLineScreenState extends State<TimeLineScreen> {
           ),
         ],
       ),
+      //TODO: separate stories from posts, the index value is not the same on both
       body: ListView.builder(
         itemCount: _posts.length,
         itemBuilder: (context, index) {
