@@ -8,7 +8,7 @@ class ShopScreen extends StatelessWidget {
     return Column(
       children: [
         Container(
-          margin: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+          margin: EdgeInsets.symmetric(horizontal: 15, vertical: 6),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -28,7 +28,7 @@ class ShopScreen extends StatelessWidget {
         ),
         Container(
           height: 35,
-          margin: EdgeInsets.symmetric(horizontal: 12),
+          margin: EdgeInsets.symmetric(horizontal: 15),
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
             color: Colors.black12,
@@ -48,7 +48,7 @@ class ShopScreen extends StatelessWidget {
           ),
         ),
         Container(
-          margin: EdgeInsets.symmetric(horizontal: 12),
+          margin: EdgeInsets.symmetric(horizontal: 15),
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
@@ -68,12 +68,12 @@ class ShopScreen extends StatelessWidget {
         //TODO: change the scroll behavior so the sugestions can scroll with the posts
         Expanded(
           child: Container(
-            margin: EdgeInsets.symmetric(horizontal: 10),
+            margin: EdgeInsets.symmetric(horizontal: 15),
             child: GridView.count(
               crossAxisCount: 2,
               mainAxisSpacing: 7,
               crossAxisSpacing: 7,
-              childAspectRatio: 0.85,
+              childAspectRatio: 0.83,
               children: [
                 ShopPostWidget('trincacamisas', 'Camisa Vasco Dry gigante'),
                 ShopPostWidget('keydesgin', 'ANEL SIMPLICIDADE PROFISSIONAL'),
@@ -90,6 +90,8 @@ class ShopScreen extends StatelessWidget {
                 ShopPostWidget('trincamisas', 'Camisa Vasco Dry'),
                 ShopPostWidget('trincamisas', 'Camisa Vasco Dry'),
                 ShopPostWidget('trincamisas', 'Camisa Vasco Dry'),
+                ShopPostWidget('lojasgigantedacolina',
+                    'Camisa Vasco Dry Gigante da Colina'),
                 ShopPostWidget('lojasgigantedacolina',
                     'Camisa Vasco Dry Gigante da Colina'),
               ],

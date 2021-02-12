@@ -13,7 +13,7 @@ class ReelsScreen extends StatelessWidget {
         Column(
           children: [
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+              margin: EdgeInsets.symmetric(horizontal: 15, vertical: 6),
               child: Text(
                 'Reels',
                 style: TextStyle(

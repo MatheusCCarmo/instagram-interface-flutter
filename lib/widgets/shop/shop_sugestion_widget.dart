@@ -9,8 +9,8 @@ class ShopSugestionWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 54,
-      width: 162,
-      margin: EdgeInsets.only(right: 8, top: 15),
+      width: 160,
+      margin: EdgeInsets.only(right: 7, top: 15),
       padding: EdgeInsets.all(8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),

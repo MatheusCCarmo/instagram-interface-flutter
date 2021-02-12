@@ -14,13 +14,15 @@ class _TimeLineScreenState extends State<TimeLineScreen> {
     PostWidget(),
     PostWidget(),
     PostWidget(),
-    PostWidget(),
-    PostWidget(),
-    PostWidget(),
-    PostWidget(),
   ];
 
   List<StorieWidget> _stories = [
+    StorieWidget(),
+    StorieWidget(),
+    StorieWidget(),
+    StorieWidget(),
+    StorieWidget(),
+    StorieWidget(),
     StorieWidget(),
     StorieWidget(),
     StorieWidget(),
@@ -36,10 +38,11 @@ class _TimeLineScreenState extends State<TimeLineScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: 50,
         elevation: 0,
         leadingWidth: 0,
         title: Container(
-          height: 50,
+          height: 45,
           child: Image.asset(
             "assets/images/text-logo.svg.png",
             fit: BoxFit.cover,
@@ -84,8 +87,8 @@ class _TimeLineScreenState extends State<TimeLineScreen> {
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: _stories.length,
-                    itemBuilder: (context, index) {
-                      return _stories[index];
+                    itemBuilder: (storiesContext, storiesIndex) {
+                      return _stories[storiesIndex];
                     },
                   ),
                 ),

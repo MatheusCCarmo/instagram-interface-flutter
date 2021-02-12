@@ -41,8 +41,8 @@ class ExploreScreen extends StatelessWidget {
           children: [
             Container(
               height: 35,
-              margin: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-              width: MediaQuery.of(context).size.width - 70,
+              margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+              width: MediaQuery.of(context).size.width - 75,
               decoration: BoxDecoration(
                 color: Colors.black12,
                 borderRadius: BorderRadius.circular(10),
