@@ -18,13 +18,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
             border: galleryViewMode == viewMode
                 ? Border(
                     bottom: BorderSide(
-                      color: Colors.black45,
+                      color: Colors.black,
                       width: 1.2,
                     ),
                   )
                 : null,
           ),
-          child: Icon(icon),
+          child: Icon(
+            icon,
+            size: 24,
+            color: galleryViewMode == viewMode ? Colors.black : Colors.black54,
+          ),
         ),
         onTap: () {
           setState(() {

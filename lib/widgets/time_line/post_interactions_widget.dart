@@ -16,13 +16,13 @@ class PostInteractionsWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          _buildText('Curtido por Fulano e outras pessoas'),
-          _buildText('Fulano É O AUGE'),
-          _buildText('Ver todos os 281 comentários'),
+          _buildText('Liked by Fulano and others'),
+          _buildText('Fulano YOU ROCK!!'),
+          _buildText('View all 331 comments'),
           Row(
             children: <Widget>[
-              _buildText('Há 6 horas'),
-              _buildText('Ver tradução')
+              _buildText('4 minutes ago'),
+              _buildText('See Translation')
             ],
           ),
         ],
