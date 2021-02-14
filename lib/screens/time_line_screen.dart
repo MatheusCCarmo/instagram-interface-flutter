@@ -42,7 +42,7 @@ class _TimeLineScreenState extends State<TimeLineScreen> {
         elevation: 0,
         leadingWidth: 0,
         title: Container(
-          height: 45,
+          height: 42,
           child: Image.asset(
             "assets/images/text-logo.svg.png",
             fit: BoxFit.cover,
@@ -56,7 +56,7 @@ class _TimeLineScreenState extends State<TimeLineScreen> {
             onTap: () {},
           ),
           SizedBox(
-            width: 10,
+            width: 15,
           ),
           GestureDetector(
             child: Container(
@@ -67,11 +67,14 @@ class _TimeLineScreenState extends State<TimeLineScreen> {
             onTap: () {},
           ),
           SizedBox(
-            width: 10,
+            width: 15,
           ),
           GestureDetector(
             child: Icon(Icons.north_east),
             onTap: () {},
+          ),
+          SizedBox(
+            width: 10,
           ),
         ],
       ),
@@ -91,6 +94,9 @@ class _TimeLineScreenState extends State<TimeLineScreen> {
                       return _stories[storiesIndex];
                     },
                   ),
+                ),
+                Divider(
+                  height: 1,
                 ),
                 _posts[index],
               ],

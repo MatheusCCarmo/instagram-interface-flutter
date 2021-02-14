@@ -15,13 +15,24 @@ class PostWidget extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: CircleAvatar(
-                    radius: 20,
+                    radius: 18,
                   ),
                 ),
-                Text('Name'),
+                Text(
+                  'username',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ],
             ),
-            Icon(Icons.more_vert)
+            Container(
+              margin: EdgeInsets.only(right: 8),
+              child: Icon(
+                Icons.more_horiz,
+                size: 24,
+              ),
+            )
           ],
         ),
         Container(
