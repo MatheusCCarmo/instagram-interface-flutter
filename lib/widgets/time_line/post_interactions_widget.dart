@@ -1,12 +1,27 @@
 import 'package:flutter/material.dart';
 
 class PostInteractionsWidget extends StatelessWidget {
-  Widget _buildText(String text) {
+  Widget someonesComment(String author, String comment) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 2),
-      child: Text(text),
+      child: Row(
+        children: [
+          Text(
+            author,
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          SizedBox(
+            width: 4,
+          ),
+          Text(comment),
+        ],
+      ),
     );
   }
+
+  // Widget likesText(String userWhoLiked){
+  //   return
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +31,43 @@ class PostInteractionsWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          _buildText('Liked by Fulano and others'),
-          _buildText('Fulano YOU ROCK!!'),
-          _buildText('View all 331 comments'),
+          Text('Liked by Fulano and others'),
+          SizedBox(
+            height: 4,
+          ),
+          someonesComment('username', 'just me!'),
+          SizedBox(
+            height: 4,
+          ),
+          Text(
+            'View all 331 comments',
+            style: TextStyle(color: Colors.black54),
+          ),
+          SizedBox(
+            height: 4,
+          ),
+          someonesComment('Fulano', 'YOU ROCK!!'),
           Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              _buildText('4 minutes ago'),
-              _buildText('See Translation')
+              Text(
+                '4 minutes ago',
+                style: TextStyle(color: Colors.black54, fontSize: 12),
+              ),
+              SizedBox(
+                width: 4,
+              ),
+              Container(
+                margin: EdgeInsets.only(bottom: 5),
+                child: Text('.'),
+              ),
+              SizedBox(
+                width: 4,
+              ),
+              Text(
+                'See Translation',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+              )
             ],
           ),
         ],
