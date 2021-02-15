@@ -1,27 +1,17 @@
 import 'package:flutter/material.dart';
 
 class PostInteractionsWidget extends StatelessWidget {
-  Widget someonesComment(String author, String comment) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 2),
-      child: Row(
-        children: [
-          Text(
-            author,
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-          SizedBox(
-            width: 4,
-          ),
-          Text(comment),
+  Widget someonesComment(String author, String comment, BuildContext context) {
+    return RichText(
+      text: TextSpan(
+        style: DefaultTextStyle.of(context).style,
+        children: <TextSpan>[
+          TextSpan(text: author, style: TextStyle(fontWeight: FontWeight.bold)),
+          TextSpan(text: ' ' + comment),
         ],
       ),
     );
   }
-
-  // Widget likesText(String userWhoLiked){
-  //   return
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -31,11 +21,25 @@ class PostInteractionsWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text('Liked by Fulano and others'),
+          RichText(
+            text: TextSpan(
+              style: DefaultTextStyle.of(context).style,
+              children: <TextSpan>[
+                TextSpan(text: 'liked by '),
+                TextSpan(
+                    text: 'userWhoLiked',
+                    style: TextStyle(fontWeight: FontWeight.bold)),
+                TextSpan(text: ' and'),
+                TextSpan(
+                    text: ' others.',
+                    style: TextStyle(fontWeight: FontWeight.bold)),
+              ],
+            ),
+          ),
           SizedBox(
             height: 4,
           ),
-          someonesComment('username', 'just me!'),
+          someonesComment('username', 'just me!', context),
           SizedBox(
             height: 4,
           ),
@@ -46,7 +50,7 @@ class PostInteractionsWidget extends StatelessWidget {
           SizedBox(
             height: 4,
           ),
-          someonesComment('Fulano', 'YOU ROCK!!'),
+          someonesComment('Fulano', 'YOU ROCK!!', context),
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[

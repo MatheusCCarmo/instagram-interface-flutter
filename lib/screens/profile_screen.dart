@@ -9,6 +9,16 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   int galleryViewMode = 0;
 
+  Widget profileScreenPost() {
+    return GridTile(
+      child: GestureDetector(
+        child: Image.network(
+            'https://spassodourado.com.br/wp-content/uploads/2015/01/default-placeholder.png'),
+        onTap: () {},
+      ),
+    );
+  }
+
   Widget galleryViewChoice(IconData icon, int viewMode) {
     return Expanded(
       child: GestureDetector(
@@ -75,22 +85,36 @@ class _ProfileScreenState extends State<ProfileScreen> {
           )
         ],
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            ProfilePanel(),
-            Divider(
-              thickness: 1.2,
+      body: Column(
+        children: [
+          ProfilePanel(),
+          Divider(
+            thickness: 1.2,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              galleryViewChoice(Icons.grid_on, 0),
+              galleryViewChoice(Icons.person_pin_outlined, 1),
+            ],
+          ),
+          Expanded(
+            child: GridView.count(
+              crossAxisCount: 3,
+              mainAxisSpacing: 0.6,
+              crossAxisSpacing: 0.6,
+              children: galleryViewMode == 0
+                  ? List.generate(
+                      15,
+                      (index) => profileScreenPost(),
+                    )
+                  : List.generate(
+                      4,
+                      (index) => profileScreenPost(),
+                    ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                galleryViewChoice(Icons.grid_on, 0),
-                galleryViewChoice(Icons.person_pin_outlined, 1),
-              ],
-            ),
-          ],
-        ),
+          )
+        ],
       ),
     );
   }

@@ -24,9 +24,8 @@ class ExploreScreen extends StatelessWidget {
   Widget exploreScreenPost() {
     return GridTile(
       child: GestureDetector(
-        child: Container(
-          color: Colors.red,
-        ),
+        child: Image.network(
+            'https://spassodourado.com.br/wp-content/uploads/2015/01/default-placeholder.png'),
         onTap: () {},
       ),
     );
@@ -98,27 +97,10 @@ class ExploreScreen extends StatelessWidget {
         ),
         Expanded(
           child: GridView.count(
-            crossAxisCount: 3,
-            mainAxisSpacing: 0.6,
-            crossAxisSpacing: 0.6,
-            children: [
-              exploreScreenPost(),
-              exploreScreenPost(),
-              exploreScreenPost(),
-              exploreScreenPost(),
-              exploreScreenPost(),
-              exploreScreenPost(),
-              exploreScreenPost(),
-              exploreScreenPost(),
-              exploreScreenPost(),
-              exploreScreenPost(),
-              exploreScreenPost(),
-              exploreScreenPost(),
-              exploreScreenPost(),
-              exploreScreenPost(),
-              exploreScreenPost(),
-            ],
-          ),
+              crossAxisCount: 3,
+              mainAxisSpacing: 0.6,
+              crossAxisSpacing: 0.6,
+              children: List.generate(15, (index) => exploreScreenPost())),
         )
       ],
     );
