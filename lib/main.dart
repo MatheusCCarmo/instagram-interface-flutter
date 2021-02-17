@@ -59,6 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // margin: EdgeInsets.only(bottom: 15),
           alignment: Alignment.topCenter,
           child: BottomNavigationBar(
+            backgroundColor: _selectedIndex == 2 ? Colors.black : Colors.white,
             showSelectedLabels: false,
             showUnselectedLabels: false,
             elevation: 0,
@@ -74,14 +75,14 @@ class _MyHomePageState extends State<MyHomePage> {
               BottomNavigationBarItem(
                 icon: Icon(
                   _selectedIndex == 0 ? Icons.home : Icons.home_outlined,
-                  color: Colors.black,
+                  color: _selectedIndex != 2 ? Colors.black : Colors.white,
                 ),
                 label: '',
               ),
               BottomNavigationBarItem(
                 icon: Icon(
                   Icons.search,
-                  color: Colors.black,
+                  color: _selectedIndex != 2 ? Colors.black : Colors.white,
                 ),
                 label: '',
               ),
@@ -90,7 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   _selectedIndex == 2
                       ? Icons.play_arrow
                       : Icons.play_arrow_outlined,
-                  color: Colors.black,
+                  color: _selectedIndex != 2 ? Colors.black : Colors.white,
                 ),
                 label: '',
               ),
@@ -99,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   _selectedIndex == 3
                       ? Icons.shopping_bag
                       : Icons.shopping_bag_outlined,
-                  color: Colors.black,
+                  color: _selectedIndex != 2 ? Colors.black : Colors.white,
                 ),
                 label: '',
               ),
@@ -108,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   _selectedIndex == 4
                       ? Icons.account_circle
                       : Icons.account_circle_outlined,
-                  color: Colors.black,
+                  color: _selectedIndex != 2 ? Colors.black : Colors.white,
                 ),
                 label: '',
               ),
