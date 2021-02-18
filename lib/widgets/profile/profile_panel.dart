@@ -73,12 +73,41 @@ class ProfilePanel extends StatelessWidget {
           biographyText('Software Developer \nBrazil'),
           Container(
             margin: EdgeInsets.only(top: 15),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            child: Column(
               children: [
                 ProfilePanelButton('Edit Profile'),
-                ProfilePanelButton('Promotions'),
-                ProfilePanelButton('Insights'),
+                SizedBox(
+                  height: 5,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Flexible(
+                      flex: 20,
+                      child: ProfilePanelButton(
+                        'Promotions',
+                      ),
+                    ),
+                    Spacer(
+                      flex: 1,
+                    ),
+                    Flexible(
+                      flex: 20,
+                      child: ProfilePanelButton(
+                        'Insights',
+                      ),
+                    ),
+                    Spacer(
+                      flex: 1,
+                    ),
+                    Flexible(
+                      flex: 20,
+                      child: ProfilePanelButton(
+                        'Saved',
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
