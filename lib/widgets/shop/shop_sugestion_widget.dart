@@ -2,15 +2,28 @@ import 'package:flutter/material.dart';
 
 class ShopSugestionWidget extends StatelessWidget {
   String sugestion;
+  int sugestionIndex;
 
-  ShopSugestionWidget(this.sugestion);
+  ShopSugestionWidget(this.sugestion, this.sugestionIndex);
 
   @override
   Widget build(BuildContext context) {
+    EdgeInsets insets;
+
+    insets = EdgeInsets.only(right: 7, top: 15);
+
+    if (sugestionIndex == 0) {
+      insets = EdgeInsets.only(left: 15);
+    } else if (sugestionIndex == 4) {
+      insets = EdgeInsets.only(left: 6, right: 15);
+    } else {
+      insets = EdgeInsets.only(left: 6);
+    }
+
     return Container(
       height: 54,
       width: 160,
-      margin: EdgeInsets.only(right: 7, top: 15),
+      margin: insets,
       padding: EdgeInsets.all(8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),

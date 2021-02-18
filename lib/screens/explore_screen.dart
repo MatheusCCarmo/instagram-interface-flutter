@@ -26,6 +26,7 @@ class ExploreScreen extends StatelessWidget {
     } else {
       insets = EdgeInsets.only(left: 7.5);
     }
+
     return GestureDetector(
       child: Container(
         margin: insets,
@@ -101,7 +102,7 @@ class ExploreScreen extends StatelessWidget {
         SliverAppBar(
           pinned: true,
           elevation: 0,
-          toolbarHeight: 48,
+          toolbarHeight: 45,
           flexibleSpace: Container(
             alignment: Alignment.center,
             child: SingleChildScrollView(

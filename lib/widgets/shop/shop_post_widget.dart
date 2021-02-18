@@ -43,7 +43,7 @@ class ShopPostWidget extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            height: (screenWidth - 27) / 2,
+            height: (screenWidth - 35) / 2,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: Container(
