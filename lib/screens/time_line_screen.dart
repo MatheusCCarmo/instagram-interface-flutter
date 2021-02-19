@@ -9,31 +9,22 @@ class TimeLineScreen extends StatefulWidget {
 }
 
 class _TimeLineScreenState extends State<TimeLineScreen> {
-  List<PostWidget> _posts = [
-    PostWidget(),
-    PostWidget(),
-    PostWidget(),
-    PostWidget(),
-    PostWidget(),
-  ];
+  List<PostWidget> _posts = List.generate(
+    10,
+    (index) => PostWidget(),
+  );
 
-  List<StorieWidget> _stories = [
-    StorieWidget(),
-    StorieWidget(),
-    StorieWidget(),
-    StorieWidget(),
-    StorieWidget(),
-    StorieWidget(),
-    StorieWidget(),
-    StorieWidget(),
-    StorieWidget(),
-    StorieWidget(),
-    StorieWidget(),
-    StorieWidget(),
-    StorieWidget(),
-    StorieWidget(),
-    StorieWidget(),
-  ];
+  List<StorieWidget> _stories = List.generate(
+    12,
+    (index) => StorieWidget(),
+  );
+
+  Future<void> refreshTimeLine() async {
+    await Future.delayed(Duration(milliseconds: 500));
+    setState(() {
+      _posts = List.generate(10, (index) => PostWidget());
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -79,32 +70,36 @@ class _TimeLineScreenState extends State<TimeLineScreen> {
           ),
         ],
       ),
-      body: ListView.builder(
-        itemCount: _posts.length,
-        itemBuilder: (context, index) {
-          if (index == 0) {
-            return Column(
-              children: <Widget>[
-                Container(
-                  height: 100,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: _stories.length,
-                    itemBuilder: (storiesContext, storiesIndex) {
-                      return _stories[storiesIndex];
-                    },
+      body: RefreshIndicator(
+        onRefresh: refreshTimeLine,
+        // backgroundColor: Colors.black,
+        child: ListView.builder(
+          itemCount: _posts.length,
+          itemBuilder: (context, index) {
+            if (index == 0) {
+              return Column(
+                children: <Widget>[
+                  Container(
+                    height: 100,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: _stories.length,
+                      itemBuilder: (storiesContext, storiesIndex) {
+                        return _stories[storiesIndex];
+                      },
+                    ),
                   ),
-                ),
-                Divider(
-                  height: 1,
-                ),
-                _posts[index],
-              ],
-            );
-          } else {
-            return _posts[index];
-          }
-        },
+                  Divider(
+                    height: 1,
+                  ),
+                  _posts[index],
+                ],
+              );
+            } else {
+              return _posts[index];
+            }
+          },
+        ),
       ),
     );
   }
