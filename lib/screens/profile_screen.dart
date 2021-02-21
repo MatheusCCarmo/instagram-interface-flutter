@@ -8,6 +8,7 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   int galleryViewMode = 0;
+  bool isDarkTheme = false;
 
   Widget profileScreenPost() {
     return GridTile(
@@ -53,10 +54,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
       ),
       builder: (ctx) {
         return Container(
-          height: 450,
+          height: 470,
           padding: EdgeInsets.all(15),
-          child: ListView(
-            physics: NeverScrollableScrollPhysics(),
+          child: Column(
+            // physics: NeverScrollableScrollPhysics(),
             children: [
               Align(
                 alignment: Alignment.center,
@@ -79,6 +80,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
               menuButton(Icons.bookmark_border, 'Saved'),
               menuButton(Icons.list, 'Close Friends'),
               menuButton(Icons.person_add_outlined, 'Discover People'),
+              SizedBox(
+                height: 5,
+              ),
+              Container(
+                height: 40,
+                alignment: Alignment.center,
+                child: Row(mainAxisSize: MainAxisSize.min, children: [
+                  Text('Dark Theme'),
+                  Switch.adaptive(
+                    value: isDarkTheme,
+                    onChanged: (newValue) {
+                      setState(() {
+                        isDarkTheme = newValue;
+                      });
+                      print('Dark Theme switch to $isDarkTheme');
+                    },
+                  ),
+                ]),
+              ),
             ],
           ),
         );
@@ -181,11 +201,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
             crossAxisSpacing: 0.6,
             children: galleryViewMode == 0
                 ? List.generate(
-                    25,
+                    35,
                     (index) => profileScreenPost(),
                   )
                 : List.generate(
-                    4,
+                    22,
                     (index) => profileScreenPost(),
                   ),
           ),

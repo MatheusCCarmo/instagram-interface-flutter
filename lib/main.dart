@@ -33,8 +33,10 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage>
+    with SingleTickerProviderStateMixin {
   int _selectedIndex = 0;
+  TabController _tabController;
 
   List<Widget> _screens = [
     TimeLineScreen(),
@@ -44,78 +46,81 @@ class _MyHomePageState extends State<MyHomePage> {
     ProfileScreen(),
   ];
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(
+      vsync: this,
+      initialIndex: 0,
+      length: _screens.length,
+    );
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  Widget customBottomNavigationBar(BuildContext context) {
+    double myHeight = 45; //Your height HERE
+    return Container(
+      height: myHeight,
+      color: _selectedIndex != 2 ? Colors.white : Colors.black,
+      width: MediaQuery.of(context).size.width,
+      child: TabBar(
+        controller: _tabController,
+        onTap: (value) {
+          setState(() {
+            _selectedIndex = _tabController.index;
+          });
+        },
+        tabs: [
+          Tab(
+            icon: Icon(
+              _selectedIndex == 0 ? Icons.home : Icons.home_outlined,
+              size: 26.0,
+            ),
+          ),
+          Tab(icon: Icon(Icons.search, size: 26.0)),
+          Tab(
+            icon: Icon(
+              _selectedIndex == 2
+                  ? Icons.play_arrow
+                  : Icons.play_arrow_outlined,
+              size: 26.0,
+            ),
+          ),
+          Tab(
+            icon: Icon(
+              _selectedIndex == 3
+                  ? Icons.shopping_bag
+                  : Icons.shopping_bag_outlined,
+              size: 26.0,
+            ),
+          ),
+          Tab(
+            icon: Icon(
+              _selectedIndex == 3
+                  ? Icons.account_circle_outlined
+                  : Icons.account_circle,
+              size: 26.0,
+            ),
+          ),
+        ],
+        unselectedLabelColor: _selectedIndex != 2 ? Colors.grey : Colors.grey,
+        labelColor: _selectedIndex != 2 ? Colors.black : Colors.white,
+        // indicatorSize: TabBarIndicatorSize.label,
+        indicatorColor: _selectedIndex != 2 ? Colors.white : Colors.black,
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        bottomNavigationBar: Container(
-          height: 56,
-          // margin: EdgeInsets.only(bottom: 15),
-          alignment: Alignment.topCenter,
-          child: BottomNavigationBar(
-            backgroundColor: _selectedIndex == 2 ? Colors.black : Colors.white,
-            showSelectedLabels: false,
-            showUnselectedLabels: false,
-            elevation: 0,
-            selectedFontSize: 13,
-            unselectedFontSize: 12,
-            iconSize: 28,
-            type: BottomNavigationBarType.fixed,
-            unselectedItemColor: Colors.white24,
-            selectedItemColor: Colors.blue,
-            currentIndex: _selectedIndex,
-            onTap: _onItemTapped,
-            items: [
-              BottomNavigationBarItem(
-                icon: Icon(
-                  _selectedIndex == 0 ? Icons.home : Icons.home_outlined,
-                  color: _selectedIndex != 2 ? Colors.black : Colors.white,
-                ),
-                label: '',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.search,
-                  color: _selectedIndex != 2 ? Colors.black : Colors.white,
-                ),
-                label: '',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  _selectedIndex == 2
-                      ? Icons.play_arrow
-                      : Icons.play_arrow_outlined,
-                  color: _selectedIndex != 2 ? Colors.black : Colors.white,
-                ),
-                label: '',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  _selectedIndex == 3
-                      ? Icons.shopping_bag
-                      : Icons.shopping_bag_outlined,
-                  color: _selectedIndex != 2 ? Colors.black : Colors.white,
-                ),
-                label: '',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  _selectedIndex == 4
-                      ? Icons.account_circle
-                      : Icons.account_circle_outlined,
-                  color: _selectedIndex != 2 ? Colors.black : Colors.white,
-                ),
-                label: '',
-              ),
-            ],
-          ),
-        ),
+        bottomNavigationBar: customBottomNavigationBar(context),
         body: _screens[_selectedIndex],
       ),
     );
