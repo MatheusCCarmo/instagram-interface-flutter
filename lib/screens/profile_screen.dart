@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/widgets/profile/profile_panel.dart';
-import 'package:instagram/widgets/profile/switch_theme_button.dart';
 
 class ProfileScreen extends StatefulWidget {
   @override
@@ -54,7 +53,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       ),
       builder: (ctx) {
         return Container(
-          height: 470,
+          height: 450,
           padding: EdgeInsets.all(15),
           child: Column(
             // physics: NeverScrollableScrollPhysics(),
@@ -83,7 +82,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
               SizedBox(
                 height: 5,
               ),
-              SwitchThemeButton(),
             ],
           ),
         );
