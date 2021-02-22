@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/widgets/profile/profile_panel.dart';
+import 'package:instagram/widgets/profile/switch_theme_button.dart';
 
 class ProfileScreen extends StatefulWidget {
   @override
@@ -8,7 +9,6 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   int galleryViewMode = 0;
-  bool isDarkTheme = false;
 
   Widget profileScreenPost() {
     return GridTile(
@@ -83,22 +83,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               SizedBox(
                 height: 5,
               ),
-              Container(
-                height: 40,
-                alignment: Alignment.center,
-                child: Row(mainAxisSize: MainAxisSize.min, children: [
-                  Text('Dark Theme'),
-                  Switch.adaptive(
-                    value: isDarkTheme,
-                    onChanged: (newValue) {
-                      setState(() {
-                        isDarkTheme = newValue;
-                      });
-                      print('Dark Theme switch to $isDarkTheme');
-                    },
-                  ),
-                ]),
-              ),
+              SwitchThemeButton(),
             ],
           ),
         );

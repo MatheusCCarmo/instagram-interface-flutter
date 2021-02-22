@@ -82,7 +82,12 @@ class _MyHomePageState extends State<MyHomePage>
               size: 26.0,
             ),
           ),
-          Tab(icon: Icon(Icons.search, size: 26.0)),
+          Tab(
+            icon: Icon(
+              Icons.search,
+              size: _selectedIndex == 1 ? 30 : 26.0,
+            ),
+          ),
           Tab(
             icon: Icon(
               _selectedIndex == 2
@@ -101,14 +106,14 @@ class _MyHomePageState extends State<MyHomePage>
           ),
           Tab(
             icon: Icon(
-              _selectedIndex == 3
-                  ? Icons.account_circle_outlined
-                  : Icons.account_circle,
+              _selectedIndex == 4
+                  ? Icons.account_circle
+                  : Icons.account_circle_outlined,
               size: 26.0,
             ),
           ),
         ],
-        unselectedLabelColor: _selectedIndex != 2 ? Colors.grey : Colors.grey,
+        unselectedLabelColor: _selectedIndex != 2 ? Colors.black : Colors.white,
         labelColor: _selectedIndex != 2 ? Colors.black : Colors.white,
         // indicatorSize: TabBarIndicatorSize.label,
         indicatorColor: _selectedIndex != 2 ? Colors.white : Colors.black,
