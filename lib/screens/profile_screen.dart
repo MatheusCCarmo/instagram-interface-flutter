@@ -184,11 +184,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
             crossAxisSpacing: 0.6,
             children: galleryViewMode == 0
                 ? List.generate(
-                    35,
+                    22,
                     (index) => profileScreenPost(),
                   )
                 : List.generate(
-                    22,
+                    4,
                     (index) => profileScreenPost(),
                   ),
           ),
