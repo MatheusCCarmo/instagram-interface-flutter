@@ -1,6 +1,6 @@
 # instagram
 
-A new Flutter project.
+This project is only for study purposes.
 
 ## Getting Started
 
